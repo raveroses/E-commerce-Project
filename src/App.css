@@ -1,0 +1,221 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "AvaFacad", sans-serif;
+}
+.tiny-Header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  background-color: black;
+  padding: 10px;
+}
+.logo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+}
+.diamond {
+  font-size: 50px;
+  padding: 0;
+}
+.tiny-Header p {
+  font-size: 11px;
+  color: whitesmoke;
+  font-weight: 100;
+}
+
+.tiny-Header a {
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  padding-right: 200px;
+}
+
+.lan {
+  color: white;
+  font-size: 13px;
+}
+.lan img {
+  width: 15px;
+}
+
+.second-line {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  padding-top: 20px;
+}
+.second-line h2 {
+  font-size: 20px;
+}
+
+.second-line ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.second-line ul li {
+  float: left;
+  margin-left: 40px;
+}
+.second-line ul li a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 300;
+  color: black;
+  transition: color 0.3s, font-size 0.3s ease-in;
+  cursor: pointer;
+}
+.second-line ul li a:hover {
+  color: darkblue;
+  font-size: 15px;
+  text-decoration: underline;
+}
+.search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  background-color: lightgray;
+  padding: 6px 13px;
+}
+
+.HiOutlineSearch {
+  font-size: 20px;
+  font-weight: 200;
+}
+
+.search input {
+  border: none;
+  background-color: transparent;
+  font-size: 12px;
+}
+.search input:focus {
+  outline: none;
+}
+.cartimage {
+  width: 50%;
+}
+.cartimage img {
+  width: 550px;
+}
+.flexing {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: center;
+  width: 100%;
+  margin-top: 50px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  width: 40%;
+  margin-top: 80px;
+}
+.form h3 {
+  font-size: 30px;
+  font-weight: 300;
+}
+
+.form p {
+  font-size: 13px;
+  font-weight: 300;
+  margin-top: 10px;
+}
+
+.form form {
+  margin-top: 25px;
+}
+.form input {
+  display: block;
+  padding: 9px 0px;
+  width: 300px;
+  border: none;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 20px;
+}
+
+.form input:focus {
+  outline: none;
+}
+
+.form input::placeholder {
+  font-size: 15px;
+  color: lightgray;
+  font-weight: 500;
+}
+
+.login {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+}
+
+.login .log {
+  padding: 10px 25px;
+  background-color: brown;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 2px;
+  margin-right: 100px;
+}
+
+.forget {
+  font-size: 13px;
+  color: brown;
+}
+
+.footer-flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  margin-top: 70px;
+  /* background-color: black; */
+  border: 2px solid black;
+  padding: 40px 0px;
+}
+
+.diamonds h2 {
+  font-size: 18px;
+  font-weight: 600;
+}
+.diamonds p {
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 7px;
+}
+.input {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  border: 1px solid white;
+  margin-top: 10px;
+  padding: 6px 10px;
+}
+
+.input input {
+  border: none;
+  background-color: transparent;
+}
+
+.input input:focus {
+  outline: none;
+  border: none;
+}
