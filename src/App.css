@@ -493,6 +493,14 @@ body {
   align-content: center;
   margin-top: 20px;
 }
+.sells {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin-top: 20px;
+  gap: 730px;
+}
 
 .view {
   background-color: red;
@@ -533,6 +541,7 @@ body {
 
 .flex-items {
   display: flex;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   align-content: center;
@@ -546,4 +555,25 @@ body {
   width: 100%;
   object-fit: contain;
   object-position: center;
+}
+
+.image-display {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: flex-start;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.first-image img {
+  width: 500px;
+}
+
+.second-image img {
+  width: 500px;
+}
+.second-sub img {
+  height: 270px;
 }

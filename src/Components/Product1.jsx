@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { FcLike } from "react-icons/fc";
-
+import Month from "../Components/Month";
+import Explore from "../Components/Explore";
+import NewArrival from "./NewArrival";
 export default function Timer() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -38,6 +40,9 @@ export default function Timer() {
     <>
       <Time />
       <ViewProduct data={data} />
+      <Month />
+      <Explore />
+      <NewArrival />
     </>
   );
 }

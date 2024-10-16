@@ -17,7 +17,7 @@ function Product() {
         <p>Our products</p>
       </div>
 
-      <div className="sell">
+      <div className="sells">
         <h3>Explore Our Products</h3>
         <div className="view">
           <a href="">View All</a>
