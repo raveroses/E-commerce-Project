@@ -1,16 +1,51 @@
 import { useEffect, useState } from "react";
 import { FcLike } from "react-icons/fc";
+export default function Explore() {
+  return (
+    <>
+      <Product />
+      <RealProduct />
+    </>
+  );
+}
 
-export default function Timer() {
+function Product() {
+  return (
+    <div>
+      <div className="month">
+        <div></div>
+        <p>Our products</p>
+      </div>
+
+      <div className="sell">
+        <h3>Explore Our Products</h3>
+        <div className="view">
+          <a href="">View All</a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function RealProduct() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [cartHover, setCartHover] = useState(null);
+
+  const handleHover = (id) => {
+    setCartHover(id);
+  };
+
+  const handleMouseLeave = () => {
+    setCartHover(null);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
         const response = await fetch(
-          "https://dummyjson.com/carts?limit=2&skip=10"
+          "https://dummyjson.com/carts?limit=2&skip=7"
         );
 
         if (!response.ok) {
@@ -33,69 +68,6 @@ export default function Timer() {
   if (loading) {
     return <p>Loading...</p>;
   }
-
-  return (
-    <>
-      <Time />
-      <ViewProduct data={data} />
-    </>
-  );
-}
-
-function Time() {
-  const [currentTime, setCurrentTime] = useState(new Date());
-
-  useEffect(() => {
-    const count = setInterval(() => {
-      setCurrentTime(() => new Date());
-    }, 1000);
-    return () => clearInterval(count);
-  }, []);
-
-  return (
-    <div>
-      <div className="today">
-        <div></div>
-        <p>Today's</p>
-      </div>
-
-      <div className="flash">
-        <h2>Flash Sales</h2>
-        <div className="count-down">
-          <div className="day">
-            <p>Day</p>
-            <h2>{currentTime.getDate()}:</h2> {/* Fixed to get actual date */}
-          </div>
-
-          <div className="day">
-            <p>Hour</p>
-            <h2>{currentTime.getHours()}:</h2>
-          </div>
-
-          <div className="day">
-            <p>Minute</p>
-            <h2>{currentTime.getMinutes()}:</h2>
-          </div>
-          <div className="day">
-            <p>Second</p>
-            <h2>{currentTime.getSeconds()}</h2>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function ViewProduct({ data }) {
-  const [cartHover, setCartHover] = useState(null);
-
-  const handleHover = (id) => {
-    setCartHover(id);
-  };
-
-  const handleMouseLeave = () => {
-    setCartHover(null);
-  };
   return (
     <div>
       <div className="item-grid">
@@ -141,9 +113,6 @@ function ViewProduct({ data }) {
             </div>
           ));
         })}
-      </div>
-      <div className="product-view">
-        <a href="">View All Products</a>
       </div>
     </div>
   );

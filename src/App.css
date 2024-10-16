@@ -464,3 +464,86 @@ body {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 10px;
 }
+
+.product-view {
+  background-color: red;
+  padding: 10px;
+  width: 150px;
+  margin: auto;
+  margin-top: 30px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.product-view a {
+  font-size: 14px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.product-view:hover {
+  background-color: rgb(224, 93, 93);
+}
+
+.sell {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin-top: 20px;
+}
+
+.view {
+  background-color: red;
+  padding: 8px 20px;
+  border-radius: 5px;
+}
+.view a {
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+  text-decoration: none;
+}
+.month {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin-top: 30px;
+}
+.month div {
+  background-color: red;
+  width: 15px;
+  height: 30px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.month p {
+  font-size: 12px;
+  font-weight: 600;
+  color: red;
+}
+
+.sell h3 {
+  font-size: 25px;
+  font-weight: 550;
+}
+
+.flex-items {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  align-content: center;
+  gap: 10px;
+}
+
+.speaker-image {
+  margin-top: 80px;
+}
+.speaker-image img {
+  width: 100%;
+  object-fit: contain;
+  object-position: center;
+}

@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import Timer from "../Components/Product1";
+import Month from "../Components/Month";
+import Explore from "../Components/Explore";
 export default function Home() {
   return (
     <div className="mother">
@@ -10,6 +12,9 @@ export default function Home() {
         <Carousel />
       </div>
       <Timer />
+      <hr style={{ marginTop: "60px" }} />
+      <Month />
+      <Explore />
     </div>
   );
 }
