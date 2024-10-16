@@ -2,18 +2,18 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Main({ receive }) {
-  // console.log(receive);
-
+  console.log(receive);
   const [input, setInput] = useState({
     username: "",
     email: "",
     password: "",
   });
 
-  const handlingform = (e, receive) => {
+  const handlingform = (e) => {
     const { name, value } = e.target;
 
     setInput({ ...input, [name]: value });
+    console.log(input);
   };
   const [error, setError] = useState({});
   const navigate = useNavigate();
@@ -48,7 +48,7 @@ function Main({ receive }) {
       </div>
 
       <div className="form">
-        <h3>Create an account</h3>
+        <h3>Login to Diamond</h3>
         <p>Enter your details below</p>
         <form onSubmit={handLeSubmission}>
           <input
@@ -75,13 +75,13 @@ function Main({ receive }) {
             onChange={handlingform}
           />
           {error.password && <span className="error">{error.password}</span>}
-          <button type="submit" className="log">
-            Login
-          </button>
+          <div className="login">
+            <button type="submit" className="log">
+              Login
+            </button>
+            <div className="forget">Forget Password</div>
+          </div>
         </form>
-        <div className="login">
-          <div className="forget">Forget Password</div>
-        </div>
       </div>
     </div>
   );

@@ -1,7 +1,11 @@
 import { HiOutlineSearch } from "react-icons/hi";
 import { IoDiamondOutline } from "react-icons/io5";
+import Home from "../Pages/Home";
+// import Home from "../Pages/Home";
+// import Login from "../Pages/Login";
 
-function Header() {
+function Header({ love, cart }) {
+  <Home love={love} cart={cart} />;
   return (
     <div>
       <div className="tiny-Header">
@@ -41,6 +45,7 @@ function Header() {
           </div>
         </div>
       </div>
+      {/* {} */}
     </div>
   );
 }

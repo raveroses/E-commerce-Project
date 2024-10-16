@@ -1,8 +1,7 @@
-import Header from "../Components/Header";
-import Footer from "../Components/Footer";
 import Main from "../Components/Main";
+// import Login from "./Pages/Login";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const SignUp = () => {
   const [receive, setReceiver] = useState({
@@ -44,7 +43,6 @@ const SignUp = () => {
 
   return (
     <>
-      <Header />
       <hr style={{ marginTop: "20px" }} />
       <Main2
         handLeSubmission={handLeSubmission}
@@ -52,7 +50,7 @@ const SignUp = () => {
         receive={receive}
         error={error}
       />
-      <Footer />
+
       {receive.username && receive.email && receive.password ? (
         <Main receive={receive} />
       ) : (
@@ -98,16 +96,18 @@ function Main2({ receive, handLeSubmission, handleOnChange, error }) {
               onChange={handleOnChange}
             />
             {error.password && <span className="error">{error.password}</span>}
-            <button type="submit" className="create">
-              Create Account
-            </button>
+            <div>
+              <button type="submit" className="create">
+                Create Account
+              </button>
+            </div>
           </form>
           <div className="google">
             <img src="./images/google.jpg" alt="google-image" /> Sign up with
             Google
           </div>
           <div className="log">
-            Already have an account? <a href="">Login</a>
+            Already have an account? <Link to="/login">Login</Link>
           </div>
         </div>
       </div>
