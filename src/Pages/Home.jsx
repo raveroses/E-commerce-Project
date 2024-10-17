@@ -1,16 +1,14 @@
 import { useState, useEffect } from "react";
 import SideContent from "../Components/SideContent";
 import Timer from "../Components/Product1";
+import { useNavigate } from "react-router-dom";
 export default function Home() {
-  const handleOnClick = (category) => {
-    console.log(`Selected category: ${category}`);
-    // You can add functionality for category selection here
-  };
+  const navigate = useNavigate();
   return (
     <div className="mother">
       <hr style={{ marginTop: "20px" }} />
       <div className="flexboard">
-        <SideContent onClick={handleOnClick} />
+        <SideContent onClick={() => navigate("/shop")} />
 
         <Carousel />
       </div>

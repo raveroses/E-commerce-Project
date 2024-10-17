@@ -1,6 +1,7 @@
 import SideContent from "../Components/SideContent";
 import { useEffect, useState } from "react";
 import { FcLike } from "react-icons/fc";
+import Search from "../Components/Search";
 
 export default function Shop() {
   const [categories, setCategory] = useState("beauty");
@@ -18,14 +19,11 @@ export default function Shop() {
           `https://dummyjson.com/products/category/${categories}`
         );
 
-        console.log("API Response:", response);
-
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
 
         const result = await response.json();
-        console.log("Fetched Products:", result);
 
         setData(result.products);
       } catch (err) {
@@ -56,6 +54,7 @@ export default function Shop() {
       <div className="categ-product-flex">
         <SideContent onClick={handleOnClick} categories={categories} />
         <Category data={data} categories={categories} />
+        <Search setDataa={data} />
       </div>
     </>
   );

@@ -9,6 +9,7 @@ import Home from "./Pages/Home";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import Shop from "./Pages/Shop";
+import About from "./Pages/About";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />}></Route>
           <Route path="/shop" element={<Shop />} />
+          <Route path="/about" element={<About />} />
         </Routes>
         <Footer />
       </BrowserRouter>
