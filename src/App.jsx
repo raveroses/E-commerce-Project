@@ -8,6 +8,7 @@ import SignUp from "./Pages/SignUp";
 import Home from "./Pages/Home";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
+import Shop from "./Pages/Shop";
 
 function App() {
   return (
@@ -17,11 +18,8 @@ function App() {
         <Routes>
           <Route path="/" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/home" element={<Home />}>
-            {/*<Route path="blogs" element={<Blogs />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="*" element={<NoPage />} /> */}
-          </Route>
+          <Route path="/home" element={<Home />}></Route>
+          <Route path="/shop" element={<Shop />} />
         </Routes>
         <Footer />
       </BrowserRouter>

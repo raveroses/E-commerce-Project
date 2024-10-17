@@ -3,6 +3,7 @@ import { FcLike } from "react-icons/fc";
 import Month from "../Components/Month";
 import Explore from "../Components/Explore";
 import NewArrival from "./NewArrival";
+import { Link } from "react-router-dom";
 export default function Timer() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -126,7 +127,9 @@ function ViewProduct({ data }) {
               </div>
               <div
                 className="add"
-                style={{ display: cartHover === product.id ? "block" : "none" }}
+                style={{
+                  visibility: cartHover === product.id ? "visible" : "none",
+                }}
               >
                 Add to Cart
               </div>
@@ -148,7 +151,7 @@ function ViewProduct({ data }) {
         })}
       </div>
       <div className="product-view">
-        <a href="">View All Products</a>
+        <Link to="/shop">View All Products</Link>
       </div>
     </div>
   );

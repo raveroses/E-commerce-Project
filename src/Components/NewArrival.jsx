@@ -29,6 +29,25 @@ function Arrival() {
           </div>
         </div>
       </div>
+
+      <div className="delivery-flex">
+        <div className="dlivery">
+          <img src="./images/delivery.png" alt="delivery.png" />
+          <h5>FREE AND FAST DELIVERY</h5>
+          <p>Free Delivery for all orders over $140</p>
+        </div>
+
+        <div className="dlivery">
+          <img src="./images/customer.png" alt="delivery.png" />
+          <h5>24/7 CUSTOMER SERVICE</h5>
+          <p> Friendly 24/7 customer supports</p>
+        </div>
+        <div className="dlivery">
+          <img src="./images/guarantee.png" alt="delivery.png" />
+          <h5>24/7 MONEY BACK GUARANTEE</h5>
+          <p> We return money within 30 days</p>
+        </div>
+      </div>
     </>
   );
 }

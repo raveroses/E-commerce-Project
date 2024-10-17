@@ -1,69 +1,21 @@
 import { useState, useEffect } from "react";
+import SideContent from "../Components/SideContent";
 import Timer from "../Components/Product1";
 export default function Home() {
+  const handleOnClick = (category) => {
+    console.log(`Selected category: ${category}`);
+    // You can add functionality for category selection here
+  };
   return (
     <div className="mother">
       <hr style={{ marginTop: "20px" }} />
       <div className="flexboard">
-        <SideContent />
+        <SideContent onClick={handleOnClick} />
 
         <Carousel />
       </div>
       <Timer />
     </div>
-  );
-}
-
-function SideContent() {
-  const Plist = [
-    {
-      name: "Woman’s Fashion",
-      id: 1,
-    },
-    {
-      name: "Men’s Fashion",
-      id: 2,
-    },
-    {
-      name: "Electronics",
-      id: 3,
-    },
-    {
-      name: "Home & Lifestyle",
-      id: 4,
-    },
-    {
-      name: "Medicine",
-      id: 5,
-    },
-    {
-      name: "Sports & Outdoor",
-      id: 6,
-    },
-    {
-      name: "Baby’s & Toys",
-      id: 7,
-    },
-    {
-      name: "Groceries & Pets",
-      id: 8,
-    },
-    {
-      name: "Health & Beauty",
-      id: 9,
-    },
-  ];
-
-  return (
-    <>
-      <div className="a-list">
-        <ul>
-          {Plist.map((item) => (
-            <li key={item.id}>{item.name}</li>
-          ))}
-        </ul>
-      </div>
-    </>
   );
 }
 
