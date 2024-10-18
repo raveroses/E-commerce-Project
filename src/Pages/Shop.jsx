@@ -97,7 +97,7 @@ function Category({ data, categories }) {
               <div
                 className="add"
                 style={{
-                  display: cartHover === product.id ? "block" : "none",
+                  visibility: cartHover === product.id ? "visible" : "hidden",
                 }}
               >
                 Add to Cart

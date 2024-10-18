@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { FcLike } from "react-icons/fc";
-import Month from "../Components/Month";
-import Explore from "../Components/Explore";
+import Month from "./Month";
+import Explore from "./Explore";
 import NewArrival from "./NewArrival";
 import { Link } from "react-router-dom";
-export default function Timer() {
+import WishList from "../Pages/WishList";
+
+export default function Timer({ handleWish, count }) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -21,7 +23,7 @@ export default function Timer() {
         }
 
         const result = await response.json();
-        console.log(result);
+
         setData(result.carts);
       } catch (err) {
         console.log(err.message);
@@ -40,9 +42,9 @@ export default function Timer() {
   return (
     <>
       <Time />
-      <ViewProduct data={data} />
-      <Month />
-      <Explore />
+      <ViewProduct data={data} handleWish={handleWish} count={count} />
+      <Month handleWish={handleWish} count={count} />
+      <Explore handleWish={handleWish} count={count} />
       <NewArrival />
     </>
   );
@@ -92,7 +94,7 @@ function Time() {
   );
 }
 
-function ViewProduct({ data }) {
+function ViewProduct({ data, handleWish, count }) {
   const [cartHover, setCartHover] = useState(null);
 
   const handleHover = (id) => {
@@ -102,6 +104,7 @@ function ViewProduct({ data }) {
   const handleMouseLeave = () => {
     setCartHover(null);
   };
+
   return (
     <div>
       <div className="item-grid">
@@ -120,7 +123,12 @@ function ViewProduct({ data }) {
                 />
                 <div className="icon">
                   <div className="percent">-{product.discountPercentage}%</div>
-                  <div className="like">
+                  <div
+                    className="like"
+                    onClick={() => {
+                      handleWish(product);
+                    }}
+                  >
                     <FcLike />
                   </div>
                 </div>
@@ -128,7 +136,7 @@ function ViewProduct({ data }) {
               <div
                 className="add"
                 style={{
-                  visibility: cartHover === product.id ? "visible" : "none",
+                  visibility: cartHover === product.id ? "visible" : "hidden",
                 }}
               >
                 Add to Cart

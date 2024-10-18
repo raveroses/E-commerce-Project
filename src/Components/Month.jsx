@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { FcLike } from "react-icons/fc";
 import { Link } from "react-router-dom";
-export default function Month() {
+export default function Month({ handleWish }) {
   return (
     <>
       <Product />
-      <RealProduct />
+      <RealProduct handleWish={handleWish} />
     </>
   );
 }
@@ -28,7 +28,7 @@ function Product() {
   );
 }
 
-function RealProduct() {
+function RealProduct({ handleWish }) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [cartHover, setCartHover] = useState(null);
@@ -54,7 +54,7 @@ function RealProduct() {
         }
 
         const result = await response.json();
-        console.log(result);
+
         setData(result.carts);
       } catch (err) {
         console.log(err.message);
@@ -87,14 +87,21 @@ function RealProduct() {
                 />
                 <div className="icon">
                   <div className="percent">-{product.discountPercentage}%</div>
-                  <div className="like">
+                  <div
+                    className="like"
+                    onClick={() => {
+                      handleWish(product);
+                    }}
+                  >
                     <FcLike />
                   </div>
                 </div>
               </div>
               <div
                 className="add"
-                style={{ display: cartHover === product.id ? "block" : "none" }}
+                style={{
+                  visibility: cartHover === product.id ? "visible" : "hidden",
+                }}
               >
                 Add to Cart
               </div>

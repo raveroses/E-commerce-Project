@@ -871,3 +871,18 @@ body {
   text-decoration: none;
   font-size: 13px;
 }
+
+.items-flex {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 2px;
+}
+
+.count {
+  position: absolute;
+  top: 55px;
+  right: 164px;
+  font-weight: 600;
+  font-size: 16px;
+  color: red;
+}

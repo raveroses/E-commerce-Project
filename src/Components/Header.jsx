@@ -9,11 +9,12 @@ import { IoBagHandleOutline } from "react-icons/io5";
 import { IoIosContact } from "react-icons/io";
 import { MdOutlineCancel } from "react-icons/md";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Search from "./Search";
 // import Home from "../Pages/Home";
 // import Login from "../Pages/Login";
 
-function Header() {
+function Header({ count }) {
   const [modal, setModal] = useState(false);
   const [input, setInput] = useState("");
   const [searchQuery, setSearchQuery] = useState(null);
@@ -80,7 +81,11 @@ function Header() {
           {/* {searchQuery && <Search products={searchQuery} />} */}
         </div>
         <div className="icons-papi">
-          <CiHeart className="ikon" />
+          <Link to="/wish">
+            {" "}
+            <CiHeart className="ikon" />
+          </Link>
+
           <IoCartOutline className="ikon" />
           <IoIosContact onClick={handleModal} className="ikon" />
           <div
@@ -111,6 +116,7 @@ function Header() {
             </a>
           </div>
         </div>
+        <diiv className="count">{count}</diiv>
       </div>
     </div>
   );

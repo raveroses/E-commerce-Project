@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import SideContent from "../Components/SideContent";
-import Timer from "../Components/Product1";
+import Timer from "../Components/Timer";
 import { useNavigate } from "react-router-dom";
-export default function Home() {
+export default function Home({ handleWish, count }) {
+  console.log(count);
   const navigate = useNavigate();
   return (
     <div className="mother">
@@ -12,7 +13,7 @@ export default function Home() {
 
         <Carousel />
       </div>
-      <Timer />
+      <Timer handleWish={handleWish} count={count} />
     </div>
   );
 }
