@@ -844,3 +844,30 @@ body {
   transition: background-color 0.3s ease;
   background-color: rgb(235, 76, 76);
 }
+.notfound {
+  text-align: center;
+}
+.notfound h1 {
+  font-size: 70px;
+  font-weight: 500;
+}
+
+.notfound p {
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.notfound .back {
+  background-color: red;
+  padding: 10px 15px;
+  width: 200px;
+  margin-left: 550px;
+  margin-top: 30px;
+  border-radius: 5px;
+}
+.notfound .back a {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 13px;
+}

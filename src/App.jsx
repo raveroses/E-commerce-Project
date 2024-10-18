@@ -11,6 +11,7 @@ import Footer from "./Components/Footer";
 import Shop from "./Pages/Shop";
 import About from "./Pages/About";
 import Contact from "./Pages/Contact";
+import NotFound from "./Pages/NotFound";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/shop" element={<Shop />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/notfound" element={<NotFound />} />
         </Routes>
         <Footer />
       </BrowserRouter>
