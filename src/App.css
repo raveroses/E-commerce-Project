@@ -730,3 +730,117 @@ body {
   font-weight: 400;
   padding: 10px;
 }
+
+.win {
+  padding: 50px 80px;
+}
+
+.contact-flex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  gap: 60px;
+}
+
+.textContent {
+  background-color: transparent;
+  width: 250px;
+  padding: 30px 20px;
+  box-shadow: 1px 1px lightgray;
+}
+.textContent h5 {
+  font-size: 14px;
+  font-weight: 550;
+  margin-bottom: 10px;
+}
+
+.textContent p {
+  font-size: 13px;
+  padding: 5px 0px;
+  font-weight: normal;
+}
+
+.circle {
+  background-color: red;
+  border-radius: 50%;
+  color: white;
+  padding: 5px 7px;
+  margin-right: 5px;
+}
+
+.text-flex {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  align-content: center;
+}
+
+.forms {
+  width: 700px;
+  background-color: transparent;
+  box-shadow: 1px 1px 1px 1px lightgray;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: flex-start;
+  align-items: center;
+  padding: 70px 50px;
+}
+
+.inputplace {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 20px;
+}
+
+.inputplace input {
+  padding: 9px 10px;
+  width: 200px;
+  background-color: whitesmoke;
+  border: none;
+  border-radius: 3px;
+  font-size: 15px;
+  color: gray;
+}
+.inputplace input:focus {
+  outline: none;
+}
+.inputplace input::placeholder {
+  font-size: 14px;
+  font-weight: 500;
+}
+.textarea textarea {
+  background-color: whitesmoke;
+  border: none;
+  width: 630px;
+  padding: 50px 10px;
+  font-size: 15px;
+  resize: none;
+  margin-top: 20px;
+  color: gray;
+}
+.textarea textarea:focus {
+  outline: none;
+}
+
+.textarea textarea::placeholder {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.sendmessage button {
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  border: none;
+  margin-left: 500px;
+  margin-top: 15px;
+}
+.sendmessage button:hover {
+  transition: background-color 0.3s ease;
+  background-color: rgb(235, 76, 76);
+}
