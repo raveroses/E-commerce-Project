@@ -13,6 +13,7 @@ import About from "./Pages/About";
 import Contact from "./Pages/Contact";
 import NotFound from "./Pages/NotFound";
 import WishList from "./Pages/WishList";
+import Cart from "./Pages/Cart";
 function App() {
   const [wishlist, setWishList] = useState(new Set());
   const [count, setCount] = useState(0);
@@ -49,11 +50,8 @@ function App() {
           <Route path="/" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
 
-          <Route
-            path="/home"
-            element={<Home handleWish={handleWish} count={count} />}
-          />
-          <Route path="/shop" element={<Shop />} />
+          <Route path="/home" element={<Home handleWish={handleWish} />} />
+          <Route path="/shop" element={<Shop handleWish={handleWish} />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/notfound" element={<NotFound />} />
@@ -66,6 +64,7 @@ function App() {
               />
             }
           />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -2,8 +2,7 @@ import { useState, useEffect } from "react";
 import SideContent from "../Components/SideContent";
 import Timer from "../Components/Timer";
 import { useNavigate } from "react-router-dom";
-export default function Home({ handleWish, count }) {
-  console.log(count);
+export default function Home({ handleWish }) {
   const navigate = useNavigate();
   return (
     <div className="mother">
@@ -13,7 +12,7 @@ export default function Home({ handleWish, count }) {
 
         <Carousel />
       </div>
-      <Timer handleWish={handleWish} count={count} />
+      <Timer handleWish={handleWish} />
     </div>
   );
 }

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { FcLike } from "react-icons/fc";
 import Search from "../Components/Search";
 
-export default function Shop() {
+export default function Shop({ handleWish }) {
   const [categories, setCategory] = useState("beauty");
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -53,14 +53,14 @@ export default function Shop() {
       <hr style={{ marginTop: "20px" }} />
       <div className="categ-product-flex">
         <SideContent onClick={handleOnClick} categories={categories} />
-        <Category data={data} categories={categories} />
+        <Category data={data} categories={categories} handleWish={handleWish} />
         <Search setDataa={data} />
       </div>
     </>
   );
 }
 
-function Category({ data, categories }) {
+function Category({ data, categories, handleWish }) {
   const [cartHover, setCartHover] = useState(null);
 
   const handleHover = (id) => {
@@ -89,7 +89,12 @@ function Category({ data, categories }) {
                 />
                 <div className="icon">
                   <div className="percent">-{product.discountPercentage}%</div>
-                  <div className="like">
+                  <div
+                    className="like"
+                    onClick={() => {
+                      handleWish(product);
+                    }}
+                  >
                     <FcLike />
                   </div>
                 </div>

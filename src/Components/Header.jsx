@@ -81,12 +81,15 @@ function Header({ count }) {
           {/* {searchQuery && <Search products={searchQuery} />} */}
         </div>
         <div className="icons-papi">
-          <Link to="/wish">
+          <Link to="/wish" style={{ textDecoration: "none", color: "black" }}>
             {" "}
             <CiHeart className="ikon" />
           </Link>
 
-          <IoCartOutline className="ikon" />
+          <Link to="/cart" style={{ textDecoration: "none", color: "black" }}>
+            {" "}
+            <IoCartOutline className="ikon" />
+          </Link>
           <IoIosContact onClick={handleModal} className="ikon" />
           <div
             className="contact-modal"
@@ -116,7 +119,7 @@ function Header({ count }) {
             </a>
           </div>
         </div>
-        <diiv className="count">{count}</diiv>
+        <div className="count">{count}</div>
       </div>
     </div>
   );
