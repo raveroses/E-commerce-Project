@@ -3,10 +3,15 @@ import { FcLike } from "react-icons/fc";
 import Month from "./Month";
 import Explore from "./Explore";
 import NewArrival from "./NewArrival";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import WishList from "../Pages/WishList";
 
-export default function Timer({ handleWish, count }) {
+export default function Timer({
+  handleWish,
+  count,
+  // handleProductDisplay,
+  handleAddToCart,
+}) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -42,8 +47,19 @@ export default function Timer({ handleWish, count }) {
   return (
     <>
       <Time />
-      <ViewProduct data={data} handleWish={handleWish} count={count} />
-      <Month handleWish={handleWish} count={count} />
+      <ViewProduct
+        data={data}
+        handleWish={handleWish}
+        count={count}
+        // handleProductDisplay={handleProductDisplay}
+        handleAddToCart={handleAddToCart}
+      />
+      <Month
+        handleWish={handleWish}
+        count={count}
+        // handleProductDisplay={handleProductDisplay}
+        handleAddToCart={handleAddToCart}
+      />
       <Explore handleWish={handleWish} count={count} />
       <NewArrival />
     </>
@@ -94,7 +110,13 @@ function Time() {
   );
 }
 
-function ViewProduct({ data, handleWish, count }) {
+function ViewProduct({
+  data,
+  handleWish,
+  count,
+  handleProductDisplay,
+  handleAddToCart,
+}) {
   const [cartHover, setCartHover] = useState(null);
 
   const handleHover = (id) => {
@@ -104,7 +126,7 @@ function ViewProduct({ data, handleWish, count }) {
   const handleMouseLeave = () => {
     setCartHover(null);
   };
-
+  const navigate = useNavigate();
   return (
     <div>
       <div className="item-grid">
@@ -115,6 +137,10 @@ function ViewProduct({ data, handleWish, count }) {
               key={product.id}
               onMouseOver={() => handleHover(product.id)}
               onMouseLeave={handleMouseLeave}
+              // onClick={() => {
+              //   handleProductDisplay(product);
+              //   navigate("/productDisplay");
+              // }}
             >
               <div className="product-image">
                 <img
@@ -138,13 +164,14 @@ function ViewProduct({ data, handleWish, count }) {
                 style={{
                   visibility: cartHover === product.id ? "visible" : "hidden",
                 }}
+                onClick={() => handleAddToCart(product)}
               >
                 Add to Cart
               </div>
               <div className="product-name">
-                <h5>{product.title}</h5>
+                <Link to={`/Month/${product.id}`}>{product.title}</Link>
                 <p>
-                  ${product.price.toFixed(2)}{" "}
+                  ${product.price.toFixed(2)}
                   <span className="discount">
                     ({product.discountPercentage}% off)
                   </span>

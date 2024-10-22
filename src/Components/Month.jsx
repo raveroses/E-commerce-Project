@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import { FcLike } from "react-icons/fc";
-import { Link } from "react-router-dom";
-export default function Month({ handleWish }) {
+import { Link, useNavigate } from "react-router-dom";
+
+export default function Month({ handleWish, handleProductDisplay }) {
   return (
     <>
       <Product />
-      <RealProduct handleWish={handleWish} />
+      <RealProduct
+        handleWish={handleWish}
+        handleProductDisplay={handleProductDisplay}
+      />
     </>
   );
 }
@@ -28,11 +32,11 @@ function Product() {
   );
 }
 
-function RealProduct({ handleWish }) {
+function RealProduct({ handleWish, handleProductDisplay }) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [cartHover, setCartHover] = useState(null);
-
+  const navigate = useNavigate();
   const handleHover = (id) => {
     setCartHover(id);
   };
@@ -69,6 +73,10 @@ function RealProduct({ handleWish }) {
   if (loading) {
     return <p>Loading...</p>;
   }
+  // const handleProductClick = (product) => {
+  //   handleProductDisplay(product);
+  //   navigate("/productDisplay");
+  // };
   return (
     <div>
       <div className="flex-items">
@@ -79,10 +87,11 @@ function RealProduct({ handleWish }) {
               key={product.id}
               onMouseOver={() => handleHover(product.id)}
               onMouseLeave={handleMouseLeave}
+              // onClick={() => handleProductClick(product)}
             >
               <div className="product-image">
                 <img
-                  src={product.thumbnail || "/placeholder.jpg"} // Add fallback imagea
+                  src={product.thumbnail || "/placeholder.jpg"}
                   alt={product.title}
                 />
                 <div className="icon">
@@ -106,7 +115,7 @@ function RealProduct({ handleWish }) {
                 Add to Cart
               </div>
               <div className="product-name">
-                <h5>{product.title}</h5>
+                <Link to={`/Month/${product.id}`}>{product.title}</Link>
                 <p>
                   ${product.price.toFixed(2)}{" "}
                   <span className="discount">

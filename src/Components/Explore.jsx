@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { FcLike } from "react-icons/fc";
+import { Link } from "react-router-dom";
 export default function Explore({ handleWish }) {
   return (
     <>
@@ -105,7 +106,7 @@ function RealProduct({ handleWish }) {
                 Add to Cart
               </div>
               <div className="product-name">
-                <h5>{product.title}</h5>
+                <Link to="#">{product.title}</Link>
                 <p>
                   ${product.price.toFixed(2)}{" "}
                   <span className="discount">

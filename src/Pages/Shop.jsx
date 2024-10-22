@@ -2,8 +2,9 @@ import SideContent from "../Components/SideContent";
 import { useEffect, useState } from "react";
 import { FcLike } from "react-icons/fc";
 import Search from "../Components/Search";
+import { Link, useNavigate } from "react-router-dom";
 
-export default function Shop({ handleWish }) {
+export default function Shop({ handleWish, handleProductDisplay }) {
   const [categories, setCategory] = useState("beauty");
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -53,14 +54,19 @@ export default function Shop({ handleWish }) {
       <hr style={{ marginTop: "20px" }} />
       <div className="categ-product-flex">
         <SideContent onClick={handleOnClick} categories={categories} />
-        <Category data={data} categories={categories} handleWish={handleWish} />
+        <Category
+          data={data}
+          categories={categories}
+          handleWish={handleWish}
+          handleProductDisplay={handleProductDisplay}
+        />
         <Search setDataa={data} />
       </div>
     </>
   );
 }
 
-function Category({ data, categories, handleWish }) {
+function Category({ data, categories, handleWish, handleProductDisplay }) {
   const [cartHover, setCartHover] = useState(null);
 
   const handleHover = (id) => {
@@ -70,7 +76,10 @@ function Category({ data, categories, handleWish }) {
   const handleMouseLeave = () => {
     setCartHover(null);
   };
+  const navigate = useNavigate();
 
+  const me = data.map((item) => item);
+  console.log(me);
   return (
     <div>
       {data.length > 0 ? (
@@ -81,6 +90,10 @@ function Category({ data, categories, handleWish }) {
               key={product.id}
               onMouseOver={() => handleHover(product.id)}
               onMouseLeave={handleMouseLeave}
+              // onClick={() => {
+              //   handleProductDisplay(product);
+              //   navigate("/productDisplay");
+              // }}
             >
               <div className="product-image">
                 <img
@@ -108,7 +121,7 @@ function Category({ data, categories, handleWish }) {
                 Add to Cart
               </div>
               <div className="product-name">
-                <h5>{product.title}</h5>
+                <Link to={`/Shop/${product.category}`}>{product.title}</Link>
                 <p>
                   ${product.price.toFixed(2)}{" "}
                   <span className="discount">

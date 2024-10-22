@@ -442,9 +442,11 @@ body {
   font-size: 14px;
   font-weight: 600;
 }
-.product-name h5 {
-  font-size: 15px;
+.product-name a {
+  font-size: 13px;
   font-weight: 600;
+  text-decoration: none;
+  color: black;
 }
 
 .product-name p {
@@ -1019,4 +1021,132 @@ body {
 .buss {
   font-size: 30px;
   margin-right: 9px;
+}
+.cart-mother {
+  padding: 80px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 30px;
+  align-content: center;
+  align-items: center;
+  background-color: transparent;
+  box-shadow: 1px 1px 1px 1px whitesmoke;
+}
+.header h5 {
+  font-size: 15px;
+  font-weight: 600;
+}
+.imge {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+}
+.imge img {
+  width: 40px;
+}
+
+.imge p {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.quan {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  border: 1px solid red;
+  padding: 0px 0px 0px 20px;
+  border-radius: 4px;
+}
+
+.caretup {
+  margin: 5px;
+  margin-top: 0px;
+  padding: 0px;
+}
+.caretup:hover {
+  background-color: red;
+  border-radius: 2px;
+}
+.caretdown:hover {
+  background-color: red;
+  border-radius: 2px;
+}
+
+.caretdown {
+  margin: 5px;
+  padding: 0px;
+  margin-bottom: 0px;
+}
+.caret {
+  margin-left: 16px;
+}
+
+.lastbutn {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  margin-top: 25px;
+}
+.return {
+  border: 1px solid gray;
+  padding: 9px 25px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.update {
+  border: 1px solid gray;
+  padding: 9px 25px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.summingTotal {
+  border: 1px solid red;
+  width: 350px;
+  padding: 20px 10px;
+  margin-left: 750px;
+  margin-top: 30px;
+}
+
+.summingTotal h5 {
+  font-size: 15px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.sub {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin-bottom: 15px;
+}
+
+.namee {
+  font-size: 14px;
+}
+.tot {
+  font-size: 14px;
+}
+.proceed {
+  background-color: red;
+  font-size: 13px;
+  color: white;
+  width: 140px;
+  padding: 6px 10px;
+  text-align: center;
+  border-radius: 3px;
+  margin: auto;
 }
