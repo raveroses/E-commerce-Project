@@ -57,6 +57,37 @@ function App() {
     });
   };
 
+  const [increase, setIncrease] = useState(0);
+  // const [value, setValue] = useState("");
+
+  // const handleIncrement = () => {
+  //   setIncrease(increase + 1);
+  // };
+
+  // const handleDecrement = () => {
+  //   setIncrease(increase - 1);
+  // };
+
+  const handleIncrement = (itemId) => {
+    setIncrease((previous) => ({
+      ...previous,
+      [itemId]: (previous[itemId] || 0) + 1,
+    }));
+  };
+
+  const handleDecrement = (itemId) => {
+    setIncrease((prevQuantities) => {
+      const currentQuantity = prevQuantities[itemId] || 0;
+      if (currentQuantity > 0) {
+        return {
+          ...prevQuantities,
+          [itemId]: currentQuantity - 1,
+        };
+      }
+      return prevQuantities;
+    });
+  };
+
   return (
     <>
       <BrowserRouter>
@@ -99,7 +130,17 @@ function App() {
           <Route path="/Month/:id" element={<ProductDisplay />} />
 
           <Route path="/Shop/:category" element={<CategoryDisplay />} />
-          <Route path="/cart" element={<AddToCart cartArry={cartArry} />} />
+          <Route
+            path="/cart"
+            element={
+              <AddToCart
+                cartArry={cartArry}
+                handleIncrement={handleIncrement}
+                handleDecrement={handleDecrement}
+                increase={increase}
+              />
+            }
+          />
         </Routes>
 
         <Footer />

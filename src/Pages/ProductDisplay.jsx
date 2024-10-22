@@ -9,9 +9,12 @@ const Dynamic2 = () => {
 
   const [data, setData] = useState([]);
   const [fetchData2, setFetchData2] = useState([]);
-  const [cart1, setCart1] = useState([]);
-  const allData = [data, ...fetchData2, ...cart1];
-
+  const [fetch3, setFetch3] = useState([]);
+  // const [cart1, setCart1] = useState([]);
+  const flat = fetch3.flatMap((item) => item);
+  const flat2 = data.flatMap((item) => item);
+  const flat3 = fetchData2.flatMap((item) => item);
+  const allData = [...flat2, ...flat3, ...flat];
   console.log(allData);
   // console.log(data);
   useEffect(() => {
@@ -27,14 +30,9 @@ const Dynamic2 = () => {
 
         const result = await response.json();
 
-        // i am getting the only array here and you know there is only one array which is
-        // carts then it has products inside it , so the code below means that
-        // i went into the cart array then pick out the products array
         setData(result?.carts[0].products);
       } catch (err) {
         console.log(err.message);
-      } finally {
-        console.log("");
       }
     };
 
@@ -50,13 +48,31 @@ const Dynamic2 = () => {
 
         const result = await response.json();
 
-        setFetchData2(result?.carts[0].products);
-        setCart1(result?.carts[1].products);
-        console.log(result?.carts);
+        setFetchData2([result?.carts[0].products, result?.carts[1].products]);
       } catch (err) {
         console.log(err.message);
       }
     };
+
+    const fetchData3 = async () => {
+      try {
+        const response = await fetch(
+          "https://dummyjson.com/carts?limit=2&skip=7"
+        );
+
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+
+        const result = await response.json();
+
+        setFetch3([result?.carts[0].products, result?.carts[1].products]);
+      } catch (err) {
+        console.log(err.message);
+      }
+    };
+
+    fetchData3();
 
     fetchData2();
 
@@ -64,9 +80,9 @@ const Dynamic2 = () => {
   }, []);
 
   const numericId = Number(id);
-  // console.log(numericId);
+
   const filtered = allData.find((item) => item.id === numericId);
-  // console.log("result", " ==>>>", filtered);
+
   // 5682387228
   return (
     <>

@@ -106,7 +106,7 @@ function RealProduct({ handleWish }) {
                 Add to Cart
               </div>
               <div className="product-name">
-                <Link to="#">{product.title}</Link>
+                <Link to={`/Month/${product.id}`}>{product.title}</Link>
                 <p>
                   ${product.price.toFixed(2)}{" "}
                   <span className="discount">

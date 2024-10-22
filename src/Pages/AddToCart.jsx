@@ -1,7 +1,8 @@
 import { RxCaretUp } from "react-icons/rx";
 import { RxCaretDown } from "react-icons/rx";
 
-export function AddToCart({ cartArry }) {
+export function AddToCart({ cartArry, handleIncrement, handleDecrement }) {
+  console.log(cartArry);
   const goods = cartArry;
   return (
     <div className="cart-mother">
@@ -19,7 +20,7 @@ export function AddToCart({ cartArry }) {
       </div>
 
       {goods?.map((item, index) => (
-        <div className="header" key={index}>
+        <div className="header" key={item.id}>
           <div className="imge">
             <img src={item.thumbnail} alt={index} />
             <p>{item.title}</p>
@@ -28,14 +29,14 @@ export function AddToCart({ cartArry }) {
             <p>${item.price.toFixed(2)}</p>
           </div>
           <div className="quan">
-            <div className="realmessage">3</div>
+            <div className="realmessage">{item.quantity}</div>
 
             <div className="caret">
               <div className="caretup">
-                <RxCaretUp />
+                <RxCaretUp onClick={() => handleIncrement(item.id)} />
               </div>
               <div className="caretdown">
-                <RxCaretDown />
+                <RxCaretDown onClick={() => handleDecrement(item.id)} />
               </div>
             </div>
           </div>
