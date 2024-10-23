@@ -10,13 +10,12 @@ const Dynamic2 = () => {
   const [data, setData] = useState([]);
   const [fetchData2, setFetchData2] = useState([]);
   const [fetch3, setFetch3] = useState([]);
-  // const [cart1, setCart1] = useState([]);
+
   const flat = fetch3.flatMap((item) => item);
   const flat2 = data.flatMap((item) => item);
   const flat3 = fetchData2.flatMap((item) => item);
   const allData = [...flat2, ...flat3, ...flat];
-  console.log(allData);
-  // console.log(data);
+
   useEffect(() => {
     const fetchData = async () => {
       try {

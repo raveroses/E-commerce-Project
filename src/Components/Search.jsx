@@ -16,16 +16,14 @@ export default function Search({ setDataa, products }) {
 
   return (
     <div>
-      {filteredData.length > 0 ? (
-        filteredData.map((product, index) => (
-          <div key={index}>
-            <p>{product.title}</p>
-            <p>{product.category}</p>
-          </div>
-        ))
-      ) : (
-        <p>No results found</p>
-      )}
+      {filteredData.length > 0
+        ? filteredData.map((product, index) => (
+            <div key={index}>
+              <p>{product.title}</p>
+              <p>{product.category}</p>
+            </div>
+          ))
+        : ""}
     </div>
   );
 }

@@ -424,6 +424,7 @@ body {
   box-shadow: 2px 2px gray;
   border-radius: 6px;
   margin-top: 15px;
+  /* height: 260px; */
 }
 .percent {
   font-size: 9px;
@@ -634,12 +635,15 @@ body {
 .categ-product-flex {
   padding: 2px 80px;
   display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
 }
 
 .item-grids {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  gap: 2px;
+  gap: 7px;
 }
 
 .homes p {
@@ -1149,4 +1153,35 @@ body {
   text-align: center;
   border-radius: 3px;
   margin: auto;
+}
+.small-imagess {
+  display: flex;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+  gap: 24px;
+}
+.small-imagess img {
+  width: 120px;
+  background-color: whitesmoke;
+  box-shadow: 1px 1px 1px 1px lightgray;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+}
+
+.image-container img {
+  margin-left: 39px;
+  margin-top: 40px;
+}
+.image-container h5 {
+  margin-left: 70px;
+  font-size: 15px;
+}
+.image-container p {
+  font-size: 11px;
+  color: red;
+}
+
+.product-display {
+  margin-top: 50px;
 }
