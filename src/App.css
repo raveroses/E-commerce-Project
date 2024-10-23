@@ -189,6 +189,7 @@ body {
   background-color: black;
   padding: 40px 0px;
   color: white;
+  font-style: italic;
 }
 
 .diamonds h2 {
@@ -276,6 +277,7 @@ body {
   color: white;
   border-radius: 5px;
   margin-top: 10px;
+  border: none;
 }
 
 .google {

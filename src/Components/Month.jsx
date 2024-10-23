@@ -2,13 +2,18 @@ import { useEffect, useState } from "react";
 import { FcLike } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 
-export default function Month({ handleWish, handleProductDisplay }) {
+export default function Month({
+  handleWish,
+  handleProductDisplay,
+  handleAddToCart,
+}) {
   return (
     <>
       <Product />
       <RealProduct
         handleWish={handleWish}
         handleProductDisplay={handleProductDisplay}
+        handleAddToCart={handleAddToCart}
       />
     </>
   );
@@ -32,7 +37,7 @@ function Product() {
   );
 }
 
-function RealProduct({ handleWish, handleProductDisplay }) {
+function RealProduct({ handleWish, handleProductDisplay, handleAddToCart }) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [cartHover, setCartHover] = useState(null);
@@ -73,10 +78,7 @@ function RealProduct({ handleWish, handleProductDisplay }) {
   if (loading) {
     return <p>Loading...</p>;
   }
-  // const handleProductClick = (product) => {
-  //   handleProductDisplay(product);
-  //   navigate("/productDisplay");
-  // };
+
   return (
     <div>
       <div className="flex-items">
@@ -111,6 +113,7 @@ function RealProduct({ handleWish, handleProductDisplay }) {
                 style={{
                   visibility: cartHover === product.id ? "visible" : "hidden",
                 }}
+                onClick={() => handleAddToCart(product)}
               >
                 Add to Cart
               </div>

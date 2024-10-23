@@ -60,7 +60,11 @@ export default function Timer({
         // handleProductDisplay={handleProductDisplay}
         handleAddToCart={handleAddToCart}
       />
-      <Explore handleWish={handleWish} count={count} />
+      <Explore
+        handleWish={handleWish}
+        count={count}
+        handleAddToCart={handleAddToCart}
+      />
       <NewArrival />
     </>
   );

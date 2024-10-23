@@ -5,7 +5,11 @@ import { FcLike } from "react-icons/fc";
 import Search from "../Components/Search";
 import { Link, useNavigate } from "react-router-dom";
 
-export default function Shop({ handleWish, handleProductDisplay }) {
+export default function Shop({
+  handleWish,
+  handleProductDisplay,
+  handleAddToCart,
+}) {
   const [categories, setCategory] = useState("beauty");
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -64,6 +68,7 @@ export default function Shop({ handleWish, handleProductDisplay }) {
             categories={categories}
             handleWish={handleWish}
             handleProductDisplay={handleProductDisplay}
+            handleAddToCart={handleAddToCart}
           />
         </div>
       </div>
@@ -71,7 +76,13 @@ export default function Shop({ handleWish, handleProductDisplay }) {
   );
 }
 
-function Category({ data, categories, handleWish, handleProductDisplay }) {
+function Category({
+  data,
+  categories,
+  handleWish,
+  handleProductDisplay,
+  handleAddToCart,
+}) {
   const [cartHover, setCartHover] = useState(null);
   const [show, setShow] = useState(false);
   const [idman, setIdman] = useState([]);
@@ -170,6 +181,7 @@ function Category({ data, categories, handleWish, handleProductDisplay }) {
               style={{
                 visibility: cartHover === product.id ? "visible" : "hidden",
               }}
+              onClick={() => handleAddToCart(product)}
             >
               Add to Cart
             </div>

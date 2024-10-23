@@ -58,34 +58,14 @@ function App() {
   };
 
   const [increase, setIncrease] = useState(0);
-  // const [value, setValue] = useState("");
+  const [value, setValue] = useState("");
 
-  // const handleIncrement = () => {
-  //   setIncrease(increase + 1);
-  // };
-
-  // const handleDecrement = () => {
-  //   setIncrease(increase - 1);
-  // };
-
-  const handleIncrement = (itemId) => {
-    setIncrease((previous) => ({
-      ...previous,
-      [itemId]: (previous[itemId] || 0) + 1,
-    }));
+  const handleIncrement = () => {
+    setIncrease(increase + 1);
   };
 
-  const handleDecrement = (itemId) => {
-    setIncrease((prevQuantities) => {
-      const currentQuantity = prevQuantities[itemId] || 0;
-      if (currentQuantity > 0) {
-        return {
-          ...prevQuantities,
-          [itemId]: currentQuantity - 1,
-        };
-      }
-      return prevQuantities;
-    });
+  const handleDecrement = () => {
+    setIncrease(increase - 1);
   };
 
   return (
@@ -111,6 +91,7 @@ function App() {
             element={
               <Shop
                 handleWish={handleWish}
+                handleAddToCart={handleAddToCart}
                 // handleProductDisplay={handleProductDisplay}
               />
             }

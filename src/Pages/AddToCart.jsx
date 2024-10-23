@@ -29,14 +29,14 @@ export function AddToCart({ cartArry, handleIncrement, handleDecrement }) {
             <p>${item.price.toFixed(2)}</p>
           </div>
           <div className="quan">
-            <div className="realmessage">{item.quantity}</div>
+            <div className="realmessage">2</div>
 
             <div className="caret">
               <div className="caretup">
-                <RxCaretUp onClick={() => handleIncrement(item.id)} />
+                <RxCaretUp onClick={() => handleIncrement()} />
               </div>
               <div className="caretdown">
-                <RxCaretDown onClick={() => handleDecrement(item.id)} />
+                <RxCaretDown onClick={() => handleDecrement()} />
               </div>
             </div>
           </div>

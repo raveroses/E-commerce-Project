@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { FcLike } from "react-icons/fc";
 import { Link } from "react-router-dom";
-export default function Explore({ handleWish }) {
+export default function Explore({ handleWish, handleAddToCart }) {
   return (
     <>
       <Product />
-      <RealProduct handleWish={handleWish} />
+      <RealProduct handleWish={handleWish} handleAddToCart={handleAddToCart} />
     </>
   );
 }
@@ -28,7 +28,7 @@ function Product() {
   );
 }
 
-function RealProduct({ handleWish }) {
+function RealProduct({ handleWish, handleAddToCart }) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [cartHover, setCartHover] = useState(null);
@@ -102,6 +102,7 @@ function RealProduct({ handleWish }) {
                 style={{
                   visibility: cartHover === product.id ? "visible" : "hidden",
                 }}
+                onClick={() => handleAddToCart(product)}
               >
                 Add to Cart
               </div>
