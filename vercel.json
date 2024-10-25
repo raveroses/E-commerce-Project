@@ -1,3 +1,12 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
+  "rewrites": [
+    { "source": "/login", "destination": "/login" },
+    { "source": "/signup", "destination": "/signup" },
+    { "source": "/home", "destination": "/home" },
+    { "source": "/shop", "destination": "/shop" },
+    { "source": "/wish", "destination": "/wish" },
+    { "source": "/cart", "destination": "/cart" },
+
+    { "source": "/(.*)", "destination": "/404" }
+  ]
 }
