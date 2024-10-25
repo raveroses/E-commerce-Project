@@ -45,33 +45,27 @@ function App() {
       return newWishlist;
     });
   };
-
+  const [count2, setCount2] = useState(0);
   const [addtoCart, setAddToCart] = useState(new Set());
   const cartArry = [...addtoCart];
   const handleAddToCart = (product) => {
     setAddToCart((prevCartSet) => {
       const newCartSet = new Set(prevCartSet);
       newCartSet.add(product);
-
+      setCount2((c) => c + 1);
       return newCartSet;
     });
-  };
-
-  const [increase, setIncrease] = useState(0);
-  const [value, setValue] = useState("");
-
-  const handleIncrement = () => {
-    setIncrease(increase + 1);
-  };
-
-  const handleDecrement = () => {
-    setIncrease(increase - 1);
   };
 
   return (
     <>
       <BrowserRouter>
-        <Header love={<FcLike />} cart={<IoCartOutline />} count={count} />
+        <Header
+          love={<FcLike />}
+          cart={<IoCartOutline />}
+          count={count}
+          count2={count2}
+        />
         <Routes>
           <Route path="/" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
@@ -98,7 +92,7 @@ function App() {
           />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/notfound" element={<NotFound />} />
+          <Route path="*" element={<NotFound />} />
           <Route
             path="/wish"
             element={
@@ -111,17 +105,7 @@ function App() {
           <Route path="/Month/:id" element={<ProductDisplay />} />
 
           <Route path="/Shop/:category" element={<CategoryDisplay />} />
-          <Route
-            path="/cart"
-            element={
-              <AddToCart
-                cartArry={cartArry}
-                handleIncrement={handleIncrement}
-                handleDecrement={handleDecrement}
-                increase={increase}
-              />
-            }
-          />
+          <Route path="/cart" element={<AddToCart cartArry={cartArry} />} />
         </Routes>
 
         <Footer />

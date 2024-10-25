@@ -894,6 +894,14 @@ body {
   font-size: 16px;
   color: red;
 }
+.count2 {
+  position: absolute;
+  top: 55px;
+  right: 120px;
+  font-weight: 600;
+  font-size: 16px;
+  color: red;
+}
 
 .three-stones {
   display: flex;
@@ -1186,4 +1194,9 @@ body {
 
 .product-display {
   margin-top: 50px;
+}
+
+.inputQuantity input {
+  width: 80px;
+  padding: 10px;
 }

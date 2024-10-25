@@ -14,7 +14,7 @@ import Search from "./Search";
 // import Home from "../Pages/Home";
 // import Login from "../Pages/Login";
 
-function Header({ count }) {
+function Header({ count, count2 }) {
   const [modal, setModal] = useState(false);
   const [input, setInput] = useState("");
   const [searchQuery, setSearchQuery] = useState(null);
@@ -120,6 +120,7 @@ function Header({ count }) {
           </div>
         </div>
         <div className="count">{count}</div>
+        <div className="count2">{count2}</div>
       </div>
     </div>
   );

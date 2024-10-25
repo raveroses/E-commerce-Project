@@ -1,9 +1,37 @@
+import { useState } from "react";
 import { RxCaretUp } from "react-icons/rx";
 import { RxCaretDown } from "react-icons/rx";
 
-export function AddToCart({ cartArry, handleIncrement, handleDecrement }) {
-  console.log(cartArry);
+export function AddToCart({ cartArry }) {
+  const [value, setValue] = useState(() => {
+    const newValue = {};
+    cartArry.forEach((item) => {
+      newValue[item.id] = item.quantity;
+      newValue[item.title] = item.price;
+    });
+    return newValue;
+  });
+  const handleIncrement = (id) => {
+    setValue((prev) => ({ ...prev, [id]: (prev[id] || 0) + 1 }));
+  };
+  const handleDecrement = (id) => {
+    setValue((prev) => {
+      const currentValue = prev[id] || 0;
+      const newValue = Math.max(currentValue - 1, 0);
+      return { ...prev, [id]: newValue };
+    });
+  };
+
+  const handlePrice = (price, quan) => {
+    return price * quan;
+  };
+
+  const total = cartArry.reduce((acc, item) => {
+    const quantity = value[item.id] || 0;
+    return acc + handlePrice(item.price, quantity);
+  }, 0);
   const goods = cartArry;
+
   return (
     <div className="cart-mother">
       <div className="homes">
@@ -29,19 +57,32 @@ export function AddToCart({ cartArry, handleIncrement, handleDecrement }) {
             <p>${item.price.toFixed(2)}</p>
           </div>
           <div className="quan">
-            <div className="realmessage">2</div>
+            <div className="realmessage">{value[item.id] || 0}</div>
 
-            <div className="caret">
+            <div
+              className="caret"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleIncrement(item.id);
+              }}
+            >
               <div className="caretup">
-                <RxCaretUp onClick={() => handleIncrement()} />
+                <RxCaretUp />
               </div>
-              <div className="caretdown">
-                <RxCaretDown onClick={() => handleDecrement()} />
+
+              <div
+                className="caretdown"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleDecrement(item.id);
+                }}
+              >
+                <RxCaretDown />
               </div>
             </div>
           </div>
           <div className="subtotal">
-            <p>$650</p>
+            <p>${handlePrice(item.price, value[item.id] || 0).toFixed(2)}</p>
           </div>
         </div>
       ))}
@@ -54,7 +95,7 @@ export function AddToCart({ cartArry, handleIncrement, handleDecrement }) {
         <h5>Cart Total</h5>
         <div className="sub">
           <div className="namee">Subtotal:</div>
-          <div className="tot">$1750</div>
+          <div className="tot"></div>
         </div>
 
         <div className="sub">
@@ -63,7 +104,7 @@ export function AddToCart({ cartArry, handleIncrement, handleDecrement }) {
         </div>
         <div className="sub">
           <div className="namee">Total:</div>
-          <div className="tot"> $1750</div>
+          <div className="tot"> ${total.toFixed(2)}</div>
         </div>
         <div className="proceed">Procees to checkout</div>
       </div>
