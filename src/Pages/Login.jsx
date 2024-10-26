@@ -1,10 +1,10 @@
 import Main from "../Components/Main";
 
-const Login = () => {
+const Login = ({ receive }) => {
   return (
     <div>
       <hr style={{ marginTop: "20px" }} />
-      <Main />
+      <Main receive={receive} />
     </div>
   );
 };

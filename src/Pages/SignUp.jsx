@@ -32,29 +32,27 @@ const SignUp = () => {
     setError(newError);
     return Object.keys(newError).length === 0;
   };
-
+  const [show, setShaow] = useState(true);
   const handLeSubmission = (e) => {
     e.preventDefault();
     if (handleValidation()) {
-      // If validation passes, navigate to homepage
-      navigate("/home");
+      setShaow((prev) => !prev);
     }
   };
 
   return (
     <>
       <hr style={{ marginTop: "20px" }} />
-      <Main2
-        handLeSubmission={handLeSubmission}
-        handleOnChange={handleOnChange}
-        receive={receive}
-        error={error}
-      />
-
-      {receive.username && receive.email && receive.password ? (
-        <Main receive={receive} />
+      {show ? (
+        <Main2
+          handLeSubmission={handLeSubmission}
+          handleOnChange={handleOnChange}
+          receive={receive}
+          error={error}
+          show={show}
+        />
       ) : (
-        ""
+        <Main receive={receive} show={show} />
       )}
     </>
   );
