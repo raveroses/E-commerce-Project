@@ -9,13 +9,13 @@ import Home from "./Pages/Home";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import Shop from "./Pages/Shop";
+import About from "./Pages/About";
+import Contact from "./Pages/Contact";
 import NotFound from "./Pages/NotFound";
 import WishList from "./Pages/WishList";
 import ProductDisplay from "./Pages/ProductDisplay";
 import CategoryDisplay from "./CategoryDisplay";
 import { AddToCart } from "./Pages/AddToCart";
-import Contact from "./Pages/Contact";
-import About from "./Pages/About";
 
 function App() {
   const [wishlist, setWishList] = useState(new Set());

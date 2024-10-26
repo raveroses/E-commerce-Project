@@ -6,8 +6,8 @@
     { "source": "/shop", "destination": "/shop" },
     { "source": "/cart", "destination": "/cart" },
     { "source": "/wish", "destination": "/wish" },
-    { "source": "/about", "destination": "/about" },
-    { "source": "/contact", "destination": "/contact" },
+    { "source": "/About", "destination": "/Pages/About" },
+    { "source": "/Contact", "destination": "/Pages/Contact" },
     { "source": "/(.*)", "destination": "/404" }
   ]
 }
